@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Admin Panel{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Admin Panel</h1>
+    <p>Overview of all registered users and their accounts.</p>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="label">Total Users</div>
+        <div class="value">{{ users|length }}</div>
+    </div>
+    <div class="stat-card success">
+        <div class="label">Total Bank Balance</div>
+        <div class="value">
+            ₹ {{ "%.2f"|format(users|sum(attribute='balance') if users and users[0]['balance'] is not none else 0) }}
+        </div>
+        <div class="sub">Across all accounts</div>
+    </div>
+    <div class="stat-card accent">
+        <div class="label">Logged in as</div>
+        <div class="value" style="font-size:18px;">{{ session.name }} (Admin)</div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>All Users &amp; Accounts</h2>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Account No.</th>
+                    <th>Type</th>
+                    <th>Balance (₹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in users %}
+                <tr>
+                    <td>{{ u['id'] }}</td>
+                    <td>{{ u['name'] }}</td>
+                    <td>{{ u['username'] }}</td>
+                    <td>{{ u['account_number'] if u['account_number'] else '—' }}</td>
+                    <td>{{ u['account_type'] if u['account_type'] else '—' }}</td>
+                    <td>{{ "%.2f"|format(u['balance']) if u['balance'] is not none else '0.00' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Register - Bank Management System{% endblock %}
+
+{% block body %}
+<div class="auth-page">
+    <div class="auth-left">
+        <div class="auth-left-content">
+            <h1>Create your<br>Bank Account</h1>
+            <p>Join Student Bank and start managing your money in just a few clicks. Registration is free and only takes a minute.</p>
+            <ul class="feature-list">
+                <li>Free account registration</li>
+                <li>Instant account number generation</li>
+                <li>Savings and Current account types</li>
+                <li>Track every transaction safely</li>
+            </ul>
+        </div>
+    </div>
+    <div class="auth-right">
+        <div class="auth-form">
+            <div class="flash-wrap">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% for category, msg in messages %}
+                        <div class="flash {{ category }}">{{ msg }}</div>
+                    {% endfor %}
+                {% endwith %}
+            </div>
+            <div class="form-card">
+                <h2>Create new account</h2>
+                <p class="subtitle">Fill in your details to register</p>
+                <form method="POST" action="{{ url_for('register') }}">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name="username" placeholder="Choose a username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Min. 4 characters" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+                <p class="text-link">Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Create Account{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Create Bank Account</h1>
+    <p>Choose your account type to get started.</p>
+</div>
+
+<div class="form-card">
+    <h2>Open New Account</h2>
+    <p class="subtitle">A unique 10-digit account number will be generated.</p>
+    <form method="POST">
+        <div class="form-group">
+            <label>Account Type</label>
+            <select name="acc_type" required>
+                <option value="Savings">Savings Account</option>
+                <option value="Current">Current Account</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Account</button>
+    </form>
+</div>
+{% endblock %}

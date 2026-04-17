@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Login - Bank Management System{% endblock %}
+
+{% block body %}
+<div class="auth-page">
+    <div class="auth-left">
+        <div class="auth-left-content">
+            <h1>Welcome to<br>Student Bank</h1>
+            <p>A simple, secure and easy-to-use online banking system built as a final year project.</p>
+            <ul class="feature-list">
+                <li>Manage your bank account online</li>
+                <li>Deposit and withdraw money instantly</li>
+                <li>Track your transaction history</li>
+                <li>Safe and session-based login</li>
+            </ul>
+        </div>
+    </div>
+    <div class="auth-right">
+        <div class="auth-form">
+            <div class="flash-wrap">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% for category, msg in messages %}
+                        <div class="flash {{ category }}">{{ msg }}</div>
+                    {% endfor %}
+                {% endwith %}
+            </div>
+            <div class="form-card">
+                <h2>Login to your account</h2>
+                <p class="subtitle">Enter your credentials to continue</p>
+                <form method="POST" action="{{ url_for('login') }}">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name="username" placeholder="Enter username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Enter password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <p class="text-link">Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

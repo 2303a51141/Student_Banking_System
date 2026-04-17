@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Bank Management System{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+{% if session.user_id %}
+<nav class="navbar">
+    <div class="brand">
+        <div class="brand-logo">SB</div>
+        <span>Student Bank</span>
+    </div>
+    <div class="nav-links">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('deposit') }}">Deposit</a>
+        <a href="{{ url_for('withdraw') }}">Withdraw</a>
+        <a href="{{ url_for('balance') }}">Balance</a>
+        <a href="{{ url_for('transactions') }}">Transactions</a>
+        {% if session.role == 'admin' %}
+            <a href="{{ url_for('admin') }}">Admin</a>
+        {% endif %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <span class="nav-user">Hello, {{ session.name }}</span>
+    </div>
+</nav>
+{% endif %}
+
+{% block body %}
+<div class="main-wrap">
+    <div class="flash-wrap">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, msg in messages %}
+                <div class="flash {{ category }}">{{ msg }}</div>
+            {% endfor %}
+        {% endwith %}
+    </div>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+{% endblock %}
+
+<footer class="footer">
+    &copy; 2025 Student Bank — Bank Management System Project
+</footer>
+
+</body>
+</html>

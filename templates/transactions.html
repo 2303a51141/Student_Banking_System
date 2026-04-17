@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Transactions{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Transaction History</h1>
+    <p>All deposits and withdrawals on your account.</p>
+</div>
+
+{% if account %}
+<div class="card">
+    <h2>Account: {{ account['account_number'] }} ({{ account['account_type'] }})</h2>
+    {% if txns and txns|length > 0 %}
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Type</th>
+                    <th>Amount (₹)</th>
+                    <th>Date &amp; Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in txns %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>
+                        {% if t['type'] == 'Deposit' %}
+                            <span class="badge badge-deposit">Deposit</span>
+                        {% else %}
+                            <span class="badge badge-withdraw">Withdraw</span>
+                        {% endif %}
+                    </td>
+                    <td>₹ {{ "%.2f"|format(t['amount']) }}</td>
+                    <td>{{ t['date'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <div class="empty">
+            <div class="icon">📄</div>
+            <p>No transactions yet. Make your first deposit to see it here.</p>
+        </div>
+    {% endif %}
+</div>
+{% else %}
+<div class="card empty">
+    <p>No account found. Please create one first.</p>
+</div>
+{% endif %}
+{% endblock %}

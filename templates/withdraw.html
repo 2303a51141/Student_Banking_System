@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Withdraw{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Withdraw Money</h1>
+    <p>Take out funds from your account.</p>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="label">Account Number</div>
+        <div class="value" style="font-size:18px;">{{ account['account_number'] }}</div>
+    </div>
+    <div class="stat-card error">
+        <div class="label">Available Balance</div>
+        <div class="value">₹ {{ "%.2f"|format(account['balance']) }}</div>
+    </div>
+</div>
+
+<div class="form-card">
+    <h2>Enter Withdraw Amount</h2>
+    <p class="subtitle">You cannot withdraw more than your balance</p>
+    <form method="POST">
+        <div class="form-group">
+            <label>Amount (₹)</label>
+            <input type="number" name="amount" step="0.01" min="1" placeholder="0.00" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Withdraw</button>
+    </form>
+</div>
+{% endblock %}

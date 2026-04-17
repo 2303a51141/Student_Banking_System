@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Bank Management System{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Welcome back, {{ session.name }} 👋</h1>
+    <p>Here is an overview of your bank account.</p>
+</div>
+
+{% if account %}
+    <div class="balance-card">
+        <div class="label">Current Balance</div>
+        <div class="amount">₹ {{ "%.2f"|format(account['balance']) }}</div>
+        <div class="meta">
+            <div><span>Account Number</span>{{ account['account_number'] }}</div>
+            <div><span>Account Type</span>{{ account['account_type'] }}</div>
+            <div><span>Account Holder</span>{{ session.name }}</div>
+        </div>
+    </div>
+
+    <div class="page-header" style="margin-top:30px;">
+        <h1 style="font-size:20px;">Quick Actions</h1>
+        <p>Choose what you'd like to do next.</p>
+    </div>
+
+    <div class="actions-grid">
+        <a class="action-tile" href="{{ url_for('deposit') }}">
+            <div class="icon">+</div>
+            <h3>Deposit Money</h3>
+            <p>Add funds to your bank account</p>
+        </a>
+        <a class="action-tile" href="{{ url_for('withdraw') }}">
+            <div class="icon">−</div>
+            <h3>Withdraw Money</h3>
+            <p>Take out money from your account</p>
+        </a>
+        <a class="action-tile" href="{{ url_for('balance') }}">
+            <div class="icon">₹</div>
+            <h3>Check Balance</h3>
+            <p>View your current account balance</p>
+        </a>
+        <a class="action-tile" href="{{ url_for('transactions') }}">
+            <div class="icon">≡</div>
+            <h3>Transaction History</h3>
+            <p>See all your past transactions</p>
+        </a>
+    </div>
+{% else %}
+    <div class="card" style="text-align:center;">
+        <div class="empty">
+            <div class="icon">🏦</div>
+            <h2 style="border:none; padding:0;">No bank account found</h2>
+            <p style="margin:10px 0 20px;">You haven't created a bank account yet. Create one to start banking.</p>
+            <a href="{{ url_for('create_account') }}" class="btn btn-primary" style="display:inline-block; width:auto; padding:11px 28px;">Create Bank Account</a>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
