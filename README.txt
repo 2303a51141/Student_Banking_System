@@ -8,7 +8,7 @@ PROJECT TITLE:
 
 DESCRIPTION:
     A simple web-based Bank Management System built using
-    Python (Flask) and SQLite database. The system allows
+    Python (Flask) and MYSQL database. The system allows
     users to register, login, create a bank account,
     deposit money, withdraw money, view balance, and check
     transaction history. An admin user can view all users
@@ -18,8 +18,8 @@ DESCRIPTION:
 TECHNOLOGIES USED:
 --------------------------------------------------
     - Frontend : HTML, CSS, JavaScript
-    - Backend  : Python 3 (Flask framework)
-    - Database : SQLite
+    - Backend  : Python (Flask framework)
+    - Database : MYSQL
 
 --------------------------------------------------
 FEATURES:
@@ -41,7 +41,7 @@ PROJECT STRUCTURE:
     BankManagementSystem/
         app.py              -> Main Flask application
         schema.sql          -> Database schema (SQL script)
-        bank.db             -> SQLite database (auto created)
+        bank.db             -> MYSQL database (auto created)
         README.txt          -> Project documentation
         static/
             style.css       -> Stylesheet
@@ -60,7 +60,7 @@ PROJECT STRUCTURE:
 --------------------------------------------------
 HOW TO RUN THE PROJECT (STEP-BY-STEP):
 --------------------------------------------------
-1. Install Python 3 (if not already installed).
+1. Install Python  (if not already installed).
 
 2. Install Flask using pip:
        pip install flask
@@ -75,7 +75,7 @@ HOW TO RUN THE PROJECT (STEP-BY-STEP):
    will be created automatically using schema.sql.
 
 6. Open your web browser and visit:
-       http://127.0.0.1:5000/
+       http://127.0.0.1:5000/(sample)
 
 --------------------------------------------------
 SAMPLE TEST DATA (already inserted in database):
