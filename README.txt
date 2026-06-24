@@ -75,7 +75,7 @@ HOW TO RUN THE PROJECT (STEP-BY-STEP):
    will be created automatically using schema.sql.
 
 6. Open your web browser and visit:
-       http://127.0.0.1:5000/(sample)
+       https://student-banking-system.onrender.com
 
 --------------------------------------------------
 SAMPLE TEST DATA (already inserted in database):
