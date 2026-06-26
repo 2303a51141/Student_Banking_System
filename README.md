@@ -103,31 +103,31 @@ student-banking-system/
 
 ## 📝 Registration Page
 
-![Registration Page](screenshots/01-registration-page.png)
+![Registration Page](screenshots/02-registration-page.png)
 
 ---
 
 ## 🔑 Login Page
 
-![Login Page](screenshots/02-login-page.png)
+![Login Page](screenshots/01-login-page.png)
 
 ---
 
 ## 🏦 Dashboard (No Account)
 
-![Dashboard](screenshots/03-dashboard-no-account.png)
+![Dashboard](screenshots/03-dashboard-no account.png)
 
 ---
 
 ## 🏦 Create Bank Account
 
-![Create Bank Account](screenshots/04-create-bank-account.png)
+![Create Bank Account](screenshots/04-create-bank account.png)
 
 ---
 
 ## 📊 Dashboard
 
-![Dashboard](screenshots/05-dashboard-initial.png)
+![Dashboard](screenshots/05-Main-dashboard.png)
 
 ---
 
@@ -163,7 +163,7 @@ student-banking-system/
 
 ## 📜 Transaction History
 
-![Transaction History](screenshots/11-transaction-history.png)
+![Transaction History](screenshots/11-Transaction-history.png)
 
 ---
 
