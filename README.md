@@ -115,13 +115,13 @@ student-banking-system/
 
 ## 🏦 Dashboard (No Account)
 
-![Dashboard](screenshots/03-dashboard-no account.png)
+![Dashboard](screenshots/03-dashboard-no-account.png)
 
 ---
 
 ## 🏦 Create Bank Account
 
-![Create Bank Account](screenshots/04-create-bank account.png)
+![Create Bank Account](screenshots/04-create-bank-account.png)
 
 ---
 
